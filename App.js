@@ -7,7 +7,7 @@
  /**<Text style={styles.kiri}>{tugas}</Text>*/
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {AppRegistry, Image, Platform, StyleSheet, Text, View} from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -20,11 +20,14 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
+		
       <View style={styles.container}>
+	  <Image source={pic} style={{width: 193, height: 110}}></Image>
       <Text style={styles.kiri}>Nama : Ramadhani Samudra Gawang Indiyanto</Text>
         <Text style={styles.kiri}>NO: 31</Text>
         <Text style={styles.kiri}>Kelas : XI RPL 2</Text>
-		
+		<Image style={{width: 400, height: 400}} 
+        source={require('./mine.jpg')} />
       </View>
     );
   }
