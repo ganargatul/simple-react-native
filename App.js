@@ -7,7 +7,7 @@
  /**<Text style={styles.kiri}>{tugas}</Text>*/
 
 import React, {Component} from 'react';
-import {AppRegistry, Image, Platform, StyleSheet, Text, View} from 'react-native';
+import {AppRegistry, Image, Platform, StyleSheet, Text, View , pic} from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
