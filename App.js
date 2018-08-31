@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import {AppRegistry, Image, Platform, StyleSheet, Text, View , pic} from 'react-native';
-
+import Judul from './Componens/Judul';
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -20,8 +20,8 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-		
       <View style={styles.container}>
+      	<Judul/>
 	  <Image source={pic} style={{width: 193, height: 110}}></Image>
       <Text style={styles.kiri}>Nama : Ramadhani Samudra Gawang Indiyanto</Text>
         <Text style={styles.kiri}>NO: 31</Text>
