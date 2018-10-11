@@ -1,22 +1,10 @@
-import React,{Component,PropTypes} from 'react';
-import {View, Button,Text,TextInput,StyleSheet,Image,Icon} from 'react-native';
-import index from './index';
+import React,{Component} from 'react';
+import {View, Button,Text,TextInput,StyleSheet,Image,Icon, NavigatorIOS,TouchableOpacity} from 'react-native';
+import main from './Componens/main';
+import PropTypes from 'prop-types';
+import { createStackNavigator } from 'react-navigation';
 
-
-const static propTypes = {
-    title: PropTypes.string.isRequired,
-    navigator: PropTypes.object.isRequired,
-}
-
-_onpressLogin = () =>{
-    this.props.navigator.push({
-        passProps:{title: ''},
-        title:'index'
-        component: index
-    })
-    
-}
-export default class login extends Component<Props>{
+ class login extends Component<Props>{
     render(){
         return(
             <View style={styles.container}>
@@ -25,17 +13,24 @@ export default class login extends Component<Props>{
             />
             <TextInput style={styles.input} placeholder='Username Or Email'/>
             <TextInput style={styles.input} placeholder='Password'></TextInput>
-            <Button
-                    onPress={this._onpressLogin}
-                    title="Login"
-                    style={styles.btnlgn}
-                    />
+            <TouchableOpacity  onPress={() => this.props.navigation.navigate('main')}>
+          <Text style={styles.buttonText} > Login </Text>
+        </TouchableOpacity>
             </View>
+
         )
     }
 
 }
-
+const RootStack = createStackNavigator(
+    {
+      Home: login,
+      main: main,
+    },
+    {
+      initialRouteName: 'Home',
+    }
+  );
 const styles = StyleSheet.create({
     container:{
         
@@ -63,5 +58,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         
     },
+	buttonText:{
+    fontSize:13,
+    color:'#f7f7f7'
+  },
  
 });
+export default class App extends React.Component {
+    render() {
+      return <RootStack />;
+    }
+  }	
